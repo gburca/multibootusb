@@ -96,6 +96,16 @@ Once you have the file, simply copy it to your data partition:
 cp -f memdisk <mountpoint>/boot/grub/
 ```
 
+## Figuring out the boot configuration for new ISOs
+
+The boot options must be customized to account for the target ISO's contents. Mount the ISO and see how it boots:
+
+```sh
+mkdir /mnt/iso
+mount -o loop /path/to/file.iso /mnt/iso
+```
+
+Look for `isolinux.cfg` or `grub.cfg` files in the `/mnt/iso/boot` directory and see how the ISO image is configured.
 
 ## Testing USB drive with [QEMU][]
 
@@ -111,6 +121,10 @@ Where `<device>` is the name of the USB device (e.g. */dev/sdh*). Run `mount` to
 ## Get bootable files
 
 You can download ISO files from these websites (save to `<mountpoint>/boot/isos`):
+
+* **[4MLinux][4mlinux]**: a mini Linux distribution focusing on the following four "M": Maintenance, Multimedia, Miniserver, Mystery
+
+* **[4MRescueKit][4mlinux]**: Official forks of 4MLinux: AntivirusLiveCD, BakAndImgCD, 4MParted, 4MRecover
 
 * **[Antergos][]**: a modern, elegant, and powerful operating system based on one of the best Linux distributions available, Arch Linux.
 
@@ -137,6 +151,8 @@ You can download ISO files from these websites (save to `<mountpoint>/boot/isos`
 * **[Hiren's BootCD][hirens]**: a first aid kit for your computer.
 
 * **[Kali Linux][kali]**: a Debian-derived Linux distribution designed for digital forensics and penetration testing.
+
+* **[Kaspersky Rescue Disk][kav]**: a free tool for disinfecting computers from malware which does not allow the operating system to start.
 
 * **[Linux Mint][mint]**: an Ubuntu-based distribution whose goal is to provide a more complete out-of-the-box experience by including browser plugins, media codecs, support for DVD playback, Java and other components.
 
@@ -185,6 +201,7 @@ You can get iPXE kernels from these websites (save to `<mountpoint>/boot/krnl`):
 - [Man page of SGDISK][sgdisk]
 - [Hybrid MBRs][hybridmbr]
 
+[4mlinux]: http://4mlinux.com/
 [antergos]: https://antergos.com/
 [arch]: https://www.archlinux.org/
 [backbox]: https://backbox.org/
@@ -198,6 +215,7 @@ You can get iPXE kernels from these websites (save to `<mountpoint>/boot/krnl`):
 [grml]: https://grml.org/
 [hirens]: http://www.hirensbootcd.org/
 [kali]: https://www.kali.org/
+[kav]: http://support.kaspersky.com/us/viruses/rescuedisk
 [manjaro]: https://manjaro.org/
 [mint]: https://linuxmint.com/
 [opensuse]: https://www.opensuse.org/
